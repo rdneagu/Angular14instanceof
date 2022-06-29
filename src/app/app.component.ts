@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
+import {AbstractControl, FormArray, FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -9,17 +9,27 @@ import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
 export class AppComponent {
   title = 'FreshAngular2';
 
-  private _getControlValues(control: AbstractControl): string[] {
-    const values = [];
+  static someFunc(): void {
+    const control: AbstractControl = new FormGroup({});
 
-    // If it's a FormGroup, get all the values from the group
+    // This works
+    // if (control instanceof AbstractControl) {
+    //   const controlKeys = Object.keys(control.value);
+    // }
+
+    // This doesn't work
     // if (control instanceof FormGroup) {
     //   const controlKeys = Object.keys(control.controls);
     // }
-    if (control instanceof Object) {
-      const controlKeys = Object.keys(control.value);
-    }
 
-    return values;
+    // Neither do this
+    // if (control instanceof FormControl) {
+    //   const value = control.value;
+    // }
+
+    // Neither do this
+    // if (control instanceof FormArray) {
+    //   const controlKeys = Object.keys(control.value);
+    // }
   }
 }

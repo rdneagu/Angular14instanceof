@@ -29,7 +29,7 @@ export class AppComponent {
 
     // Neither do this
     // if (control instanceof FormArray) {
-    //   const controlKeys = Object.keys(control.value);
+    //   const controlKeys = Object.keys(control.controls);
     // }
   }
 }
